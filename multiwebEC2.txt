@@ -1,0 +1,48 @@
+AWS hosting multiple websites on a single EC2 instance
+
+- Learning Outcomes
+
+1. Provision secondary private IP address and Elastic IP address
+	- In order to allow multiple websites or multiple web pages to run on one EC2 instance, we need elastic addresses or the private ip addresses
+
+2. How to get secondary IP recognized by my OS
+	- beccause wheen we launch an EC2 instance it is provided with a single public IP and a single private IP
+	
+3. Create 2 different web pages on Apache server
+
+4. Associating those web pages with our different elastic IP
+	- with those elastic IPs we will be making the webage run
+	
+ELASTIC IP ADDRESS DEFIINITION
+	- static IP address that is associated with our EC2 instance
+	
+	
+- when we stop our instance, the public ip of our instance gets lost
+
+USES OF MULTIPLE IP ADDRESSES
+
+- It can be useful to assign multiple IP addresses to an instance in the Virtual Private Cloud to do the following:
+	- Host multiple websites on a single server by using multiple SSL (Secure Socket Layer) certificates
+	
+	- Operate network appliances such as firewalls or load balancers that have multiple IP addresses for each network interface.
+	
+	- Redirect internal traffic to a standby instance in case your instance fails, by reassiggning the secondary IP address to the standby instance
+	
+	
+FIRST! What is AWS in simple terms
+
+- AWS is a colletiion of cloud services that interlock to make complex applications. Use Legos as an analogy
+
+	- EC2 is just one lego piece in the whole Amazon Web Services
+
+What is an EC2 instance? (Elastic Cloud Computing)
+ - EC2 instancees are virtual computers hosted in AWS that allow for scalable computing capacity in the AWS cloud.
+ 
+ 
+ FROM AWS MANAGEMENT CONSOLE
+	- Select EC2 -> instsances -> launch instances
+	- Select Ubuntu AMI (Amazon Machine Image) 
+		- AMI is a templatee that contains the software configs (OS, application server, and apps) to launch my instance
+	- instance type is free tier in this case t2.micro
+	- Create key pair 
+		- Make sure keypair is in linux if you're operating
