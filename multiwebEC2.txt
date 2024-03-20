@@ -31,7 +31,7 @@ USES OF MULTIPLE IP ADDRESSES
 	
 FIRST! What is AWS in simple terms
 
-- AWS is a colletiion of cloud services that interlock to make complex applications. Use Legos as an analogy
+- AWS is a colletion of cloud services that interlock to make complex applications. Use Legos as an analogy
 
 	- EC2 is just one lego piece in the whole Amazon Web Services
 
@@ -39,10 +39,33 @@ What is an EC2 instance? (Elastic Cloud Computing)
  - EC2 instancees are virtual computers hosted in AWS that allow for scalable computing capacity in the AWS cloud.
  
  
- FROM AWS MANAGEMENT CONSOLE
+ FROM AWS MANAGEMENT CONSOLE THESE ARE THE SPECIFIC REQUIREMENTS FOR APACHE DEPLOYED ON EC2 INSTANCE:
 	- Select EC2 -> instsances -> launch instances
 	- Select Ubuntu AMI (Amazon Machine Image) 
 		- AMI is a templatee that contains the software configs (OS, application server, and apps) to launch my instance
 	- instance type is free tier in this case t2.micro
 	- Create key pair 
-		- Make sure keypair is in linux if you're operating
+		- Make sure keypair is in linux if you're using WSL
+
+	- Firewall(security groups)
+		- Allow SSH traffic from everywhere 
+			-- This rule allows inbound SSH(Secure Shell) traffic to your instances by any IP addresses on the internet
+			-- SSH typically used for secure remote access to servers
+			-- By allowing SSH traffic from everywhere, any device or user with network access to your AWS instance will be able to establish an SSH connection to it
+				- Secure Shell (SSH) traffic refers to network communication using the SSH protocol. 
+				- SSH is a cryptographic network protocol that provides secure communication over an unsecured network
+				- Widely used for secure remote access to systems and for secure file transfer
+					SSH TRAFFIC EXAMPLES:
+						- Logging into remote server or VM to perform administrative tasks
+						- Transferrinng files securely between systems using tools like SCP (Secure Copy) or SFTP (SSH File Transfer Protocol)
+						- Executing commands on a remote system using SSH commands or scripts
+
+		- Allows HTTP traffic from internet
+			-- This rule allows inbound HTTP(Hypertext Transfer Protocol) traffic to your instances from any IP address on the internet.
+			-- HTTP is the protocol used for weving web bpagess and other web content. 
+			-- By allowing HTTP traffic from the internet, your instances will be accessible to web users, allowing them to browse web content hosted on your AWS instances
+				HTTP TRAFFIC EXAMPLES:
+					- Requesting Web pages: WHen you type a URL iinto your web browswer's address bar or click on a link, your browser sends an HTTP request to the corresponding web server to retrieve the requested web pages
+					- Submitting forms: When you fill out and submit a form on a web page, your browser sends an HTTP request to the server containing the form data, and the server responds with an HTTP response confirming the submission or provviding any necessary feedback
+					- Loading resources: When a web page loads, the browseer sends multiple HTTP requests to the server to reetrieve all the resources needed to render the page, including HTML, CSS, Javascript, images and multimedia files
+					- Downloading files: When you download a file form a website, your browser sennds an HTTP request to the server to retieve the file, and the serveer respons withh the file data, which your browser then downloads and saves to your computer 
