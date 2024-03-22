@@ -12,6 +12,8 @@ AWS hosting multiple websites on a single EC2 instance
 
 4. Associating those web pages with our different elastic IP
 	- with those elastic IPs we will be making the webage run
+
+
 	
 ELASTIC IP ADDRESS DEFIINITION
 	- static IP address that is associated with our EC2 instance
@@ -41,7 +43,7 @@ What is an EC2 instance? (Elastic Cloud Computing)
  
  FROM AWS MANAGEMENT CONSOLE THESE ARE THE SPECIFIC REQUIREMENTS FOR APACHE DEPLOYED ON EC2 INSTANCE:
 	- Select EC2 -> instsances -> launch instances
-	- Select Ubuntu AMI (Amazon Machine Image) 
+	- Select Ubuntu (or Amazon Linux) AMI (Amazon Machine Image) 
 		- AMI is a templatee that contains the software configs (OS, application server, and apps) to launch my instance
 	- instance type is free tier in this case t2.micro
 	- Create key pair 
@@ -69,3 +71,60 @@ What is an EC2 instance? (Elastic Cloud Computing)
 					- Submitting forms: When you fill out and submit a form on a web page, your browser sends an HTTP request to the server containing the form data, and the server responds with an HTTP response confirming the submission or provviding any necessary feedback
 					- Loading resources: When a web page loads, the browseer sends multiple HTTP requests to the server to reetrieve all the resources needed to render the page, including HTML, CSS, Javascript, images and multimedia files
 					- Downloading files: When you download a file form a website, your browser sennds an HTTP request to the server to retieve the file, and the serveer respons withh the file data, which your browser then downloads and saves to your computer 
+
+	- Launch Instance button - there'll be a link that takes you back to main instance page and I can check the box of my instance and wait for instance state and status check to complete (2/2)
+	- Press "Connect" button beacuse we're going to connect to instance using SSH
+	
+	- CONNECT TO INSTANCE PAGE
+		- select "SSH client"
+		- open ubuntu terminal if you're using WSL
+		- navigate to directory containing the private key. In the steps given on the "connect to instance" page, the actual name of the key is listed
+		- run the chmod "${anything}.pem" in my case : chmod 400 "multiWeb.pem"
+			- chmod in Unix-like OS is used to change the permissions of the files and directories.
+			- "400" is a numeric representation of the permissions
+				- "4" = read permission
+				- "2" = write permission
+				- "1" = execute permission
+			- The first digit (4) sets read permission for the owner of the file.
+			- The next two digits (00) signify no permissions for the group and others
+		- run : ssh -i "multiWeb.pem" ubuntu@ec2-13-59-0-191.us-east-2.compute.amazonaws.com
+			- "ssh" : this is the command-line tool that's used to establish a secure shell connection
+			- i "multiWeb.pem" : specifies the indentity (private key) to be used for authentication.
+				- in this case, the file named "multiWeb.pem"
+				- Private key authentication is often used to connect to EC2 instances securely instead of a password
+			- ubuntu : the username used to log in to the EC2 instance.
+			- ec2-13-59-0-191.us-east-2.compute.amazonaws.com : the public Domain Name System (DNS)
+
+	- CHECK TO SEE IF CONNECTED
+		- before running the command my terminal looked like : patrick@Patrick:~$
+		- AFTER running the commands my terminal looks like : ubuntu@ip-172-31-14-203:~$
+			- this terminal prompt indicates that I have successfully connected to an Amazon Elastic Cloud Computing instance using Secure Shell
+
+	- TIME TO INSTALL APACHE WEB SERVER ON EC2 INSTANCE
+		- run : sudo su this switches to root user which means unrestricted access to system files and configs
+		- AFTER running sudo su : terminal looks like root@ip-172-31-14-203:/home/ubuntu#
+			- root : theh username I'm logged in as. Unrestricted access to all commands and files on the system
+			- ip-172-31-14-203 : this is the hostname of the EC2 instance you're connected to. It's showing the internal IP address of the instance
+			- /home/ubuntu# : is the working directory, in this case, i'm in the home/ubuntu directory and the "#" denotes root level priviliges
+		- since i'm running ubunutu i'd use the command : apt install -y apache2. If i were using Amazon Linux AMI i'd use : yum install -y httpd.x86-64
+			- this is due to the different distros of linux, but both commands will use their respective package manager (software tool to automate installation processes) to install an HTTP server
+		- systemctl start apache2.service
+		- systemctl enable apache2.service
+	
+	- CHECK TO SEE APACHE2 DEFAULT PAGE
+		- go back to instances page and click on the instance and copy public ipv4 address and paste into address bar of browser. 
+		- should see the default apache2 page
+
+	- ASSOCIATE MORE PRIVATE IPS WITH MY EC2 INSTANCE
+		- Actions -> Networking -> Manage IP addresses
+		- click on something like this : eth0: eni-0a24c3654f54cb7d6 - 172.31.0.0/20
+		- Assign new IP address
+		- click save and let it auto assign
+
+	- cd .. all the way back and cd into etc/netplan
+	- open 50-cloud-init.yaml file. Everything below is the commented out section of the file
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
