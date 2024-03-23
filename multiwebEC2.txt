@@ -121,10 +121,27 @@ What is an EC2 instance? (Elastic Cloud Computing)
 		- Assign new IP address
 		- click save and let it auto assign
 
-	- cd .. all the way back and cd into etc/netplan
-	- open 50-cloud-init.yaml file. Everything below is the commented out section of the file
+		- cd .. all the way back and cd into etc/netplan
+		- open 50-cloud-init.yaml file. Everything below is the commented out section of the file
 # This file is generated from information provided by the datasource.  Changes
 # to it will not persist across an instance reboot.  To disable cloud-init's
 # network configuration capabilities, write a file
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
+
+		- configure 50-cloud-init.yaml file. below is what it looks like after configuration
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            dhcp6: false
+            addresses: [172.31.14.203/20, 172.31.13.112/20]
+            match:
+                macaddress: 02:c7:32:ca:75:af
+            set-name: eth0
+    version: 2
+		- the only change was the addresses where I manually put the two addresses from "manage IP addresses" from EC2 webpage in an array with the net mask included
+
+		- At this point I've made my OS recognize my secondary IP
+
+	- ALLOCATING MULTIPLE ELASTIC IPS WITH MY INSTANCE
