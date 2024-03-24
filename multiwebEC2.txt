@@ -145,3 +145,28 @@ network:
 		- At this point I've made my OS recognize my secondary IP
 
 	- ALLOCATING MULTIPLE ELASTIC IPS WITH MY INSTANCE
+		- What are elastic IPs
+			- Elastic IPs are static (fixed) IPs designed for dynamic cloud computing environments (i.e Amazon Web Services)
+		- Good use of elastic IPs
+			- When you launch an AWS EC2 instance(a virtual server) its assigned a public IP address by default. HOWEVER, this IP address can change if you stop and restart the instance.
+			- Elastic IPs solve this issue because elastic IPs remain associated with that instance AND you can move it from one instance to another easily.
+
+		- First, go to the left side nav bar and go to NETWORK & SECURITY -> Elastic IPs -> Allocate Elastic IP button (top right) -> Allocate (bottom right)
+
+		- Need 2 of these Elastic IPs because I'll be hosting 2 websites on this instance
+
+		- NOTE: clear public ipv4 addresses just below search bar to see the 2 EIPs
+
+		- NEXT: stay on page because we need to associate these EIPs with my EC2 instance
+		
+		- Highlight 1 IP address then go to actions dropdown on top right -> associate elastic IP
+
+		- Keep resoruce type the same
+
+		- Instance, choose the EC2 instance that you want to associate it with
+
+		- choose one of the private IP addresses (I just ran "ip a" while connected to the instance through ssh to view the private ip addresses)
+
+		- press "associate" button (bottom right)
+
+		- highlight these EIP one by one to check that the private IP is associated. 
