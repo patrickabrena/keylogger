@@ -237,6 +237,7 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 		- "sudo systemctl status jenkins"
 
 	- Copy elastic ip and tag ":8080" at the end and you should see the jenkins sign in page
+	- follow the instructions to retrieve password from directory
 
 
 
