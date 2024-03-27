@@ -174,15 +174,69 @@ network:
 
 Taking a tangent to learn about Jenkins which is an open-source automation server
 	
-	- Widely used for implementing CI/CD pipelines (series of automated setps that changes go through from development to deployment)
+	- Widely used for implementing CI/CD pipelines (series of automated steps that changes go through from development to deployment)
 		- CI/CD is a practice in software dev where code changes are frequently integrated into a shared repo. Automated tests and deployments are triggered upon these changes.
 		NOTE: Jenkins helps in automating the:
 			- building
 			- testing
 			- deployments
 		of software applications, enabiling teams to deliver high-quality software more rapdily and reliably
+	
+- First install Jenkins on EC2 instance
+	- refer to this website -- https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+	- NOTE: install Java first since Jenkins is a Java based application and needs a Java Development Kit to be installed on the server where it's running  (just copy the commands)
+	- then copy the commands for the weekly release for debian distro
+
+	- the series of commands below were returned when I pasted them into linux terminal
+
+	 openjdk version "17.0.10" 2024-01-16
+	OpenJDK Runtime Environment (build 17.0.10+7-Ubuntu-122.04.1)
+	OpenJDK 64-Bit Server VM (build 17.0.10+7-Ubuntu-122.04.1, mixed mode, sharing)
+	Command 'openjdk' not found, but can be installed with:
+	sudo snap install openjdk
+	-bash: syntax error near unexpected token `('
+	-bash: syntax error near unexpected token `(' 
+
+	- was able to fix using "sudo snap install openjdk"
+		- openjdk is open Java Development Kit
+
+	- You can check the status of Jenkins by inputing the commands, "sudo systemctl status jenkins". the example below is what it looks like when Jenkins is running 
+
+	● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2024-03-27 18:49:30 UTC; 2min 39s ago
+   Main PID: 33857 (java)
+      Tasks: 39 (limit: 1121)
+     Memory: 280.4M
+        CPU: 40.572s
+     CGroup: /system.slice/jenkins.service
+             └─33857 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenki>
+
+Mar 27 18:48:59 ip-172-31-14-203 jenkins[33857]: d89e77182fa24fdb8efa0e71679309e4
+Mar 27 18:48:59 ip-172-31-14-203 jenkins[33857]: This may also be found at: /var/lib/jenkins/secrets/initialAdminPasswo>
+Mar 27 18:48:59 ip-172-31-14-203 jenkins[33857]: *************************************************************
+Mar 27 18:48:59 ip-172-31-14-203 jenkins[33857]: *************************************************************
+Mar 27 18:48:59 ip-172-31-14-203 jenkins[33857]: *************************************************************
+Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.395+0000 [id=31]        INFO        jenkins.InitRe>
+Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.434+0000 [id=24]        INFO        hudson.lifecyc>
+Mar 27 18:49:30 ip-172-31-14-203 systemd[1]: Started Jenkins Continuous Integration Server.
+Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.593+0000 [id=47]        INFO        h.m.DownloadSe>
+Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [id=47]        INFO        hudson.util.Re>
 
 
+	- Go back to EC2 instance and select the correct instance,
+	- Click on "Security" tab 
+	- Click on the instance link itself (will have launch-wizard) at the end of it
+	- Will take you to a new page 
+	- Edit Inbound rules
+		- Type: All TCP (this allows all Transmission Control Protocol from) Source: Anywhere ipv4
+
+	- Reset jenkins server and check status again
+		- "sudo systemctl restart jenkins"
+		- "sudo systemctl status jenkins"
+
+	- Copy elastic ip and tag ":8080" at the end and you should see the jenkins sign in page
 
 
 
