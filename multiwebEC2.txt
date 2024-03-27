@@ -170,3 +170,23 @@ network:
 		- press "associate" button (bottom right)
 
 		- highlight these EIP one by one to check that the private IP is associated. 
+	
+
+Taking a tangent to learn about Jenkins which is an open-source automation server
+	
+	- Widely used for implementing CI/CD pipelines (series of automated setps that changes go through from development to deployment)
+		- CI/CD is a practice in software dev where code changes are frequently integrated into a shared repo. Automated tests and deployments are triggered upon these changes.
+		NOTE: Jenkins helps in automating the:
+			- building
+			- testing
+			- deployments
+		of software applications, enabiling teams to deliver high-quality software more rapdily and reliably
+
+
+
+
+
+	- MAPPING EIP WITH WEBPAGES
+		- cd back to top level directory
+		- cd into var/www/html 
+		- 

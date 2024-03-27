@@ -1,0 +1,9 @@
+Highlevel overview of the plan to make this keylogger
+
+1. Learn Apache and how to deploy a server
+
+2. Create 2 elastic IPs by creating a secondary private IP and mapping it to the EIPs
+
+3. Learn Jenkins with webhooks for CI/CD 
+
+4. Look at the keylogger XSS attack video from old guy because he uses 2 separate web pages for this
