@@ -237,7 +237,18 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 		- "sudo systemctl status jenkins"
 
 	- Copy elastic ip and tag ":8080" at the end and you should see the jenkins sign in page
-	- follow the instructions to retrieve password from directory
+		- :8080 -- the specified port that Jenkins was configured to run on
+
+	- run the command /var/lib/jenkins
+	- switch to super user (sudo su) for elevated priviliges and cd into secrets
+	- run "nano initialAdminPassword" d89e77182fa24fdb8efa0e71679309e4
+
+	IMPORTANT:  Username - pat 
+				Password - Pat_4761
+				Full Name - Patrick Abrena
+				E-mail Address - patrickabrena@hotmail.com
+
+	- Click next and save and start using Jenkins
 
 
 
