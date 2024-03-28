@@ -1,9 +1,18 @@
 Highlevel overview of the plan to make this keylogger
 
-1. Learn Apache and how to deploy a server
+1. Learn Apache and how to deploy an AWS EC2 instance server
 
 2. Create 2 elastic IPs by creating a secondary private IP and mapping it to the EIPs
 
+    - Inbetween steps
+        - Install jenkins on instance and configure necessary settings where needed
+
+        - Create 2 github repos with test HTML and CSS and maybe JS.
+        - Create 2 repos within keylogger repo and git init and the pull code from remote repo into local repo through the regular way
+        - Watch Anjali Sharma's video on youtube just before 24:00 for assigning EIP to webpage through vitual host config in the "sites-enabled" (should be 000-default.conf file to modify the virtual hosts)
+        - ?? potential create jenkins job to automate the pull from the remote repo into the correct directory located on the EC2 instance 
+
 3. Learn Jenkins with webhooks for CI/CD 
+    
 
 4. Look at the keylogger XSS attack video from old guy because he uses 2 separate web pages for this

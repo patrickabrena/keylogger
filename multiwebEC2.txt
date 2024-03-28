@@ -250,6 +250,15 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 
 	- Click next and save and start using Jenkins
 
+	- Go back to Linux terminal and sudo apt install git -y 
+
+	- cd into /etc
+	- nano sudoers and then modify the file to look like the block displayed below
+
+		- # Allow members of group sudo to execute any command
+			%sudo   ALL=(ALL:ALL) ALL
+			jenkins ALL=(ALL:ALL) NOPASSWD :ALL
+
 
 
 	- MAPPING EIP WITH WEBPAGES
