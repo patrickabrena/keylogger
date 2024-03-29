@@ -1,0 +1,6 @@
+[submodule "vic-page"]
+	path = vic-page
+	url = git@github.com:patrickabrena/vic-page.git
+[submodule "hack-page"]
+	path = hack-page
+	url = git@github.com:patrickabrena/hack-page.git
