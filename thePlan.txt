@@ -12,6 +12,11 @@ Highlevel overview of the plan to make this keylogger
         - Watch Anjali Sharma's video on youtube just before 24:00 for assigning EIP to webpage through vitual host config in the "sites-enabled" (should be 000-default.conf file to modify the virtual hosts)
         - ?? potential create jenkins job to automate the pull from the remote repo into the correct directory located on the EC2 instance 
 
+    - Inbetween steps revised (April 2, 2024)
+        - install jenkins on EC2 instance
+        - Create 2 remote github repos: hack-page and vic-page and add them as submodules within keylogger repo.
+        - create jenkins freestyle project so I can pull code from github repo into directories within "/var/www/html"
+
 3. Learn Jenkins with webhooks for CI/CD 
     
 

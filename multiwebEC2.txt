@@ -259,9 +259,26 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 			%sudo   ALL=(ALL:ALL) ALL
 			jenkins ALL=(ALL:ALL) NOPASSWD :ALL
 
+- Now, need to configure jenkins so that it has write permissions to the /var/www/html directory
+
+	- run the command "stat -c "%a %G" /var/www/html" while ssh connected to instance
+	- should return "755 root"
+		- permissions set to 755 means the owner (root in this case) has read,write, and execute permissions but other groups have read and execute but not write permissions
+		
+	- need to grant the "www-data" group write permissions to "var/www/html"
+		sudo chown -R root:www-data /var/www/html
+		sudo chmod -R 775 /var/www/html
+			- first command "chown" changes ownership of the dierectory and its contents to "root:www-data"
+			- second command "chmod" sets the permissions to 775 which grants read, write and execute permissions to the owner (root), read and execute permissions to the group www-data and read and execute permissions to others.
+			
+	- check if ownership of var/www/html is no jenkins with the command "ls -ld /var/www/html"
+
+	- if "drwxrwxr-x 2 root www-data 4096 Mar 31 16:20 /var/www/html" returns from the command above then you need to change ownership from root to jenkins with "sudo chown -R jenkins:www-data /var/www/html"
+
+	- check if ownership changed with "ls -ld /var/www/html" again
+
+	- should return "drwxrwxr-x 2 jenkins www-data 4096 Mar 31 16:20 /var/www/html"
+
+- look at latest GPT query about CI/CD using jenkins pipelines
 
 
-	- MAPPING EIP WITH WEBPAGES
-		- cd back to top level directory
-		- cd into var/www/html 
-		- 
