@@ -279,6 +279,12 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 
 	- should return "drwxrwxr-x 2 jenkins www-data 4096 Mar 31 16:20 /var/www/html"
 
-- look at latest GPT query about CI/CD using jenkins pipelines
+
+- sign into Jenkins because we're going to...
+	1. Check/Install Necessary Plugins
+	2. Configure Jenkins Credentials for github
+	3. Set Up a Jenkins Pipeline job\
+	4. Configure Webhooks for Automatic Triggering
+	5. Verify Configuration
 
 
