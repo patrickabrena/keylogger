@@ -287,4 +287,62 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 	4. Configure Webhooks for Automatic Triggering
 	5. Verify Configuration
 
+Step 1: Install Necessary Plugins
+
+    GitHub Plugin: Ensure the GitHub plugin is installed in Jenkins for GitHub integration.
+
+        - Go to Manage Jenkins > Manage Plugins.
+        - Check under Installed to see if the GitHub plugin is there. If not, go to - Available, search for the GitHub plugin, and install it.
+
+    Pipeline Plugin: Confirm that the Pipeline plugin is installed using the same method, as it's essential for defining and running your Jenkins pipelines.
+
+Step 2: Configure Jenkins Credentials for GitHub
+
+You'll need appropriate credentials set up in Jenkins to access your GitHub repository. This could be a personal access token (recommended), an SSH key, or a username/password (not recommended).
+
+    Go to Manage Jenkins > Manage Credentials > (global) > Add Credentials.
+    Choose "Secret text" for a personal access token or "SSH Username with private key" if you're using SSH.
+    Input your credentials:
+
+        - For a personal access token, enter the token in the "Secret" field.
+        - For SSH, enter the username and private key.
+
+    Give it an ID and description so you can easily identify it later, then click OK.
+
+Step 3: Set Up a Jenkins Pipeline Job
+
+    In Jenkins, choose New Item.
+    Enter a name for your pipeline, select Pipeline, and then click OK.
+    In the pipeline configuration, scroll down to the Pipeline section.
+
+        Definition: Select Pipeline script from SCM.
+        SCM: Choose Git.
+        Repository URL: Enter your GitHub repository URL.
+        Credentials: Select the credentials you created for GitHub access.
+        Branch Specifier (blank for 'any'): Specify the branch you want to build from, e.g., */main.
+
+Step 4: Configure Webhooks for Automatic Triggering
+
+To trigger Jenkins builds automatically on GitHub repository changes, you can use GitHub webhooks.
+
+    In GitHub Repository Settings:
+        Go to your repository on GitHub, click on Settings > Webhooks > Add webhook.
+        Payload URL: Enter http://<JENKINS_URL>/github-webhook/, replacing <JENKINS_URL> with your Jenkins instance's URL.
+        Content type: Select application/json.
+        Which events would you like to trigger this webhook?: Choose Just the push event or Send me everything depending on your needs.
+        Click Add webhook.
+
+    In Jenkins:
+        Ensure that the GitHub plugin is configured to manage hooks (Jenkins will automatically manage hooks for jobs that use GitHub repositories).
+
+Step 5: Verify Configuration
+
+    Push a change to your GitHub repository or manually trigger the webhook to test the integration.
+    Check in Jenkins to see if the pipeline job runs automatically upon the GitHub event.
+
+This setup establishes a basic CI/CD pipeline that reacts to changes in your GitHub repository, executing your Jenkins pipeline automatically. Depending on your specific requirements, you might adjust webhook settings, branch specifications, or pipeline scripts.
+
+
+
+	- For step 2: configure jenkins credentials for github
 
