@@ -345,6 +345,7 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 
 
 	- For step 2: configure jenkins credentials for github...
+
 		- Sign in -> Manage Jenkins (left nav bar) -> Credentials (Configure credentials) -> 
 		- Under domain, you should see "(global)"
 		- click on it, then "Add Credentials"
@@ -365,6 +366,16 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 			Adding the SSH Key to Github
 
 			- Open your public Key file (/home/ubuntu/.ssh/id_rsa.pub), copy its contents
+			- In Github, navigate to Settings -> SSH and GPG keys -> New SSH Key
+				- GPG (GNU Privacy Guard) note: GNU is "GNU's Not Unix" which is a Unix-like open-source operating system
+				- GPG key is a tool used for encrypting and signing data and comms.
+				- used to ensure confidentialityh and integrity of data, verify the data of the sender and prevent tampering or unauth access 
+			- Paste your public key, give it a title for identification, and click "Add SSH Key"
+
+	- For step 3, Setting up a Jenkins Pipeline Job
+		-Check GPT for "Check RSA Key Fingerprints"
+
+		NOTE: There might be an issue later on with github integration with jenkins  so be aware
 
 		NOTE: "multiweb" is the passphrase for this instance
 
