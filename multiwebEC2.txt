@@ -279,7 +279,7 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 
 	- should return "drwxrwxr-x 2 jenkins www-data 4096 Mar 31 16:20 /var/www/html"
 
-
+sidenote: if EC2 instance status check is 
 - sign into Jenkins because we're going to...
 	1. Check/Install Necessary Plugins
 	2. Configure Jenkins Credentials for github
@@ -344,5 +344,28 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 
 
 
-	- For step 2: configure jenkins credentials for github
+	- For step 2: configure jenkins credentials for github...
+		- Sign in -> Manage Jenkins (left nav bar) -> Credentials (Configure credentials) -> 
+		- Under domain, you should see "(global)"
+		- click on it, then "Add Credentials"
+		- Switch kind to SSH Username with private key
+		- run command "ssh-keygen" while ssh connected to instance that has the server on it
+		- running that command will give something like this on return
+			Generating public/private rsa key pair.
+			Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa):
+			Enter passphrase (empty for no passphrase):
+			Enter same passphrase again:
+			Your identification has been saved in /home/ubuntu/.ssh/id_rsa
+			Your public key has been saved in /home/ubuntu/.ssh/id_rsa.pub
+			The key fingerprint is:
+			SHA256:TYyMmb31alDKEERj4hF4SVcY51/lHM4+vbuGg0vCgkE ubuntu@ip-172-31-14-203
+			The key's randomart image is:
+		- Once generates, you'll have a private key (eg. "id_rsa") and a public key (eg. "is_rsa.pub")
+
+			Adding the SSH Key to Github
+
+			- Open your public Key file (/home/ubuntu/.ssh/id_rsa.pub), copy its contents
+
+		NOTE: "multiweb" is the passphrase for this instance
+
 
