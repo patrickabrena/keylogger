@@ -372,8 +372,11 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 				- used to ensure confidentialityh and integrity of data, verify the data of the sender and prevent tampering or unauth access 
 			- Paste your public key, give it a title for identification, and click "Add SSH Key"
 
+			-Check GPT for "Check RSA Key Fingerprints"
+				-While ssh connected run ssh-keygen -lf /path/to/your/public/key.pub
+
 	- For step 3, Setting up a Jenkins Pipeline Job
-		-Check GPT for "Check RSA Key Fingerprints"
+		
 
 		NOTE: There might be an issue later on with github integration with jenkins  so be aware
 
