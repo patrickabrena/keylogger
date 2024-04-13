@@ -361,20 +361,44 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 			The key fingerprint is:
 			SHA256:TYyMmb31alDKEERj4hF4SVcY51/lHM4+vbuGg0vCgkE ubuntu@ip-172-31-14-203
 			The key's randomart image is:
+
 		- Once generates, you'll have a private key (eg. "id_rsa") and a public key (eg. "is_rsa.pub")
 
 			Adding the SSH Key to Github
 
 			- Open your public Key file (/home/ubuntu/.ssh/id_rsa.pub), copy its contents
+
 			- In Github, navigate to Settings -> SSH and GPG keys -> New SSH Key
 				- GPG (GNU Privacy Guard) note: GNU is "GNU's Not Unix" which is a Unix-like open-source operating system
 				- GPG key is a tool used for encrypting and signing data and comms.
-				- used to ensure confidentialityh and integrity of data, verify the data of the sender and prevent tampering or unauth access 
+				- used to ensure confidentiality and integrity of data, verify the data of the sender and prevent tampering or unauth access 
+
 			- Paste your public key, give it a title for identification, and click "Add SSH Key"
 
-			-Check GPT for "Check RSA Key Fingerprints"
-				-While ssh connected run ssh-keygen -lf /path/to/your/public/key.pub
+			- While ssh connected run ssh-keygen -lf /home/ubuntu/.ssh/id_rsa.pub
+				- "-l" : tells ssh-keygen to show the fingerprint of the key.
+					- fingerprint is a hash of the public key and is used to uniquely identify the key.
+					- Useful for quickly verifying whether two keys are the same, without comparing the full key contents.
 
+				- "-f" : specifies the filename of the key whose fingerprint is to be displayed.
+
+				- this will return something like "3072 SHA256:TYyMmb31alDKEERj4hF4SVcY51/lHM4+vbuGg0vCgkE ubuntu@ip-172-31-14-203 (RSA)" which I can check and verify on github under settings -> SSH and GPG keys
+			
+			- run the command "ssh -T git@github.com"
+
+				The authenticity of host 'github.com (140.82.113.3)' can't be established.
+				ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+				This key is not known by any other names
+				Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+				Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+				Enter passphrase for key '/home/ubuntu/.ssh/id_rsa':
+				Hi patrickabrena! You've successfully authenticated, but GitHub does not provide shell access.
+			
+			- Check GPT "CHeck SSh Key Match" to see how I can verify credentials through generating the corresponding public key using the commands showed
+
+
+
+----------------------------------------------------------------------------------
 	- For step 3, Setting up a Jenkins Pipeline Job
 		
 
