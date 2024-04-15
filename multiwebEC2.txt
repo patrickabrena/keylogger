@@ -394,7 +394,7 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 				Enter passphrase for key '/home/ubuntu/.ssh/id_rsa':
 				Hi patrickabrena! You've successfully authenticated, but GitHub does not provide shell access.
 			
-			- Check GPT "CHeck SSh Key Match" to see how I can verify credentials through generating the corresponding public key using the commands showed
+			- Check GPT "CHeck SSh Key Match" to see detailed explanation on verifying public key with jenkins
 
 
 
