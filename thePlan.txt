@@ -18,6 +18,13 @@ Highlevel overview of the plan to make this keylogger
         - ensure that jenkins has the write permissions for /var/www/html directory
         - create jenkins freestyle project so I can pull code from github repo into directories within "/var/www/html"
 
+    - - Inbetween steps revised (April 16, 2024)
+        - install jenkins on EC2 instance
+        - Create 2 remote github repos: hack-page and vic-page and add them as submodules within keylogger repo.
+        - ensure that jenkins has the "write" permissions for /var/www/html directory
+        - configure jenkins credentials for github through "ssh keygen"
+        - create 2 pipeline jobs, one for each webpage (hack and vic) and configure with webhooks to automatically pull from repo to /var/www/html
+
 3. Learn Jenkins with webhooks for CI/CD 
     
 
