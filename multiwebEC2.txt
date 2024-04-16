@@ -31,6 +31,17 @@ USES OF MULTIPLE IP ADDRESSES
 	- Redirect internal traffic to a standby instance in case your instance fails, by reassiggning the secondary IP address to the standby instance
 	
 	
+
+
+
+------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 FIRST! What is AWS in simple terms
 
 - AWS is a colletion of cloud services that interlock to make complex applications. Use Legos as an analogy
@@ -170,7 +181,20 @@ network:
 		- press "associate" button (bottom right)
 
 		- highlight these EIP one by one to check that the private IP is associated. 
+
+
+
+
+
 	
+
+
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
 
 Taking a tangent to learn about Jenkins which is an open-source automation server
 	
@@ -259,6 +283,15 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 			%sudo   ALL=(ALL:ALL) ALL
 			jenkins ALL=(ALL:ALL) NOPASSWD :ALL
 
+			
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+
 - Now, need to configure jenkins so that it has write permissions to the /var/www/html directory
 
 	- run the command "stat -c "%a %G" /var/www/html" while ssh connected to instance
@@ -344,6 +377,12 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 
 
 
+
+
+-------------------------------------------------------------------------------
+
+
+
 	- For step 2: configure jenkins credentials for github...
 
 		- Sign in -> Manage Jenkins (left nav bar) -> Credentials (Configure credentials) -> 
@@ -397,8 +436,19 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 			- Check GPT "CHeck SSh Key Match" to see detailed explanation on verifying public key with jenkins
 
 
+NOTE: There might be an issue later on with github integration with jenkins  so be aware
+
+		NOTE: "multiweb" is the passphrase for this instance
+
+
+
 
 ----------------------------------------------------------------------------------
+
+
+
+
+
 	- For step 3, Setting up a Jenkins Pipeline Job
 		
 
