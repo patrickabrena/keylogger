@@ -134,24 +134,25 @@ What is an EC2 instance? (Elastic Cloud Computing)
 
 		- cd .. all the way back and cd into etc/netplan
 		- open 50-cloud-init.yaml file. Everything below is the commented out section of the file
-# This file is generated from information provided by the datasource.  Changes
-# to it will not persist across an instance reboot.  To disable cloud-init's
-# network configuration capabilities, write a file
-# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
-# network: {config: disabled}
+
+		  # This file is generated from information provided by the datasource.  Changes
+		  # to it will not persist across an instance reboot.  To disable cloud-init's
+		  # network configuration capabilities, write a file
+		  # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+		  # network: {config: disabled}
 
 		- configure 50-cloud-init.yaml file. below is what it looks like after configuration
-network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            dhcp6: false
-            addresses: [172.31.14.203/20, 172.31.13.112/20]
-            match:
-                macaddress: 02:c7:32:ca:75:af
-            set-name: eth0
-    version: 2
-		- the only change was the addresses where I manually put the two addresses from "manage IP addresses" from EC2 webpage in an array with the net mask included
+			network:
+			    ethernets:
+			        eth0:
+			            dhcp4: true
+			            dhcp6: false
+			            addresses: [172.31.14.203/20, 172.31.13.112/20]
+			            match:
+			                macaddress: 02:c7:32:ca:75:af
+			            set-name: eth0
+			    version: 2
+					- the only change was the addresses where I manually put the two addresses from "manage IP addresses" from EC2 webpage in an array with the net mask included
 
 		- At this point I've made my OS recognize my secondary IP
 
@@ -462,8 +463,32 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 			- Credentials: select the one I configured and added to jenkins through ssh key-gen 
 
 	- For step 4, Configure Webhooks for Automatic Triggering 
-		- check GPT CI/CD with Jenkins and Github 
-			- also look further up in this text doc. It will be there
+		 follow the first step by going to the repo > webhooks > Add webhook
+		 copy address that jenkins is configured to in this case it's "http://18.191.88.173:8080" then add /github-webhook at the end
+
+		 - content type: json
+		 - "send me everything"
+		 - Add web hook
+
+		 - Need to verify it now...
+		 	- go to the branch and add and commit a new test.txt file 
+			- refresh jenkins it should have a build error at this point saying...
+				"Started by GitHub push by patrickabrena
+					ERROR: Unable to find Jenkinsfile from git https://github.com/patrickabrena/hack-page.git
+					Finished: FAILURE"
+
+			- I need to create a Jenkins file now that defines the entire pipline for a Jenkins Job. Written in Groovy DSL (Domain Specific Language)
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+
+
+
+Taking another tangent to learn Groovy DSL for writing jenkins pipeline scripts
+
 
 			
 
