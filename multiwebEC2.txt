@@ -312,7 +312,7 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 
 	- should return "drwxrwxr-x 2 jenkins www-data 4096 Mar 31 16:20 /var/www/html"
 
-sidenote: if EC2 instance status check is 
+
 - sign into Jenkins because we're going to...
 	1. Check/Install Necessary Plugins
 	2. Configure Jenkins Credentials for github
@@ -436,7 +436,7 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 			- Check GPT "CHeck SSh Key Match" to see detailed explanation on verifying public key with jenkins
 
 
-NOTE: There might be an issue later on with github integration with jenkins  so be aware
+		NOTE: There might be an issue later on with github integration with jenkins  so be aware
 
 		NOTE: "multiweb" is the passphrase for this instance
 
@@ -450,10 +450,25 @@ NOTE: There might be an issue later on with github integration with jenkins  so 
 
 
 	- For step 3, Setting up a Jenkins Pipeline Job
+
+		- create 2 pipeline jobs, one for each webpage (hack and vic) and configure with webhooks to automatically pull from repo to /var/www/html
+
+		- first, we need to...
+			- create new pipeline (check GPT CI/CD)
+			- give it a description if you want
+			- under Pipeline Definition, select Pipeline script form SCM
+			- SCM: choose Git
+			- Repository URL: copy the HTTP url from github
+			- Credentials: select the one I configured and added to jenkins through ssh key-gen 
+
+	- For step 4, Configure Webhooks for Automatic Triggering 
+		- check GPT CI/CD with Jenkins and Github 
+			- also look further up in this text doc. It will be there
+
+			
+
 		
 
-		NOTE: There might be an issue later on with github integration with jenkins  so be aware
-
-		NOTE: "multiweb" is the passphrase for this instance
+		
 
 
