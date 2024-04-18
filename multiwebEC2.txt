@@ -491,7 +491,7 @@ Taking another tangent to learn Groovy DSL for writing jenkins pipeline scripts
 
 - need to create a jenkins file in the repo that has the webhook so that jenkins can read the pipeline script for instructions
 
-- below is basic groovy syntax
+- below is delcarative syntax
 
 pipeline {
 
@@ -505,6 +505,12 @@ pipeline {
 		}
 	}
 }
+
+node {
+	// groovy script
+}
+
+- jenkins file can be written as a scripted or declarative pipeline
 
 
 			
