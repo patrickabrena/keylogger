@@ -489,6 +489,23 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 
 Taking another tangent to learn Groovy DSL for writing jenkins pipeline scripts
 
+- need to create a jenkins file in the repo that has the webhook so that jenkins can read the pipeline script for instructions
+
+- below is basic groovy syntax
+
+pipeline {
+
+	agent any
+
+	stages {
+
+		stage("build") {
+
+			steps
+		}
+	}
+}
+
 
 			
 
