@@ -313,6 +313,7 @@ Mar 27 18:49:30 ip-172-31-14-203 jenkins[33857]: 2024-03-27 18:49:30.594+0000 [i
 
 	- should return "drwxrwxr-x 2 jenkins www-data 4096 Mar 31 16:20 /var/www/html"
 
+CONFIGURING JENKINS CREDENTIALS FOR GITHUB USING SSH PRIVATE Key
 
 - sign into Jenkins because we're going to...
 	1. Check/Install Necessary Plugins
@@ -452,7 +453,7 @@ This setup establishes a basic CI/CD pipeline that reacts to changes in your Git
 
 	- For step 3, Setting up a Jenkins Pipeline Job
 
-		- create 2 pipeline jobs, one for each webpage (hack and vic) and configure with webhooks to automatically pull from repo to /var/www/html
+		- create 2 pipeline jobs, one for each webpage (hack and vic) and configure with webhooks to automatically pull from remote github repo to /var/www/html on our instance
 
 		- first, we need to...
 			- create new pipeline (check GPT CI/CD)
@@ -493,11 +494,11 @@ Taking another tangent to learn Groovy DSL for writing jenkins pipeline scripts
 
 - below is delcarative syntax
 
-pipeline {
+pipeline { //pipeline must be top level
 
-	agent any
+	agent any // "agent" where to execute or run on any available jenkins agent
 
-	stages {
+	stages { // "stages" - where the "work" happens
 
 		stage("build") {
 
@@ -506,11 +507,46 @@ pipeline {
 	}
 }
 
+- example of stages below
+
+stage("build") {
+
+			steps
+		}
+
+stage("test") {
+
+			steps
+		}
+
+stage("deploy") {
+
+			steps
+		}
+
 node {
 	// groovy script
+	// this opening node with curly braces is the same as pipeline { agent any {}} 
 }
 
 - jenkins file can be written as a scripted or declarative pipeline
+
+- onn jenkins UI, go configure the pipeline script path to .jenkins
+
+- in the remote repo you used for the URL for pipeline script from SCM, add a .jenkins file and test it with...
+
+pipeline {
+    agent any
+    stages {
+        stage("Build") {
+            steps {
+             sh 'echo "Hello World"'
+           }
+        }
+    }
+}
+
+- commit changes and then build and it should work. if not, check the console output to determine the error
 
 
 			
