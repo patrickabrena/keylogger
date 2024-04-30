@@ -548,6 +548,7 @@ pipeline {
 
 - commit changes and then build and it should work. if not, check the console output to determine the error
 
+- (04/30/2024) look at GPT "Get Host Key GitHub" to see how to get ssh key using cat then copy and paste into jenkins manually host key verification. This 
 
 			
 
