@@ -552,7 +552,7 @@ pipeline {
 
 - If .jenkins is being read as a javascript file then switch it to .jenkinsfile and remmemeber to switch scriipt path to .jenkinsfile in the configure sectiion of thee pipeline
 
-			
+- (05/01/2024) Current iteration of groovy script in hack-page works!
 
 		
 
