@@ -556,6 +556,7 @@ pipeline {
 
 - (05/08/2024) had to create a new index.html to replace the one I deleted. also had to redo the permissiions to allow jenkins access to write over var/www/html
 
+- (05/09/2024) trying to move private and public key for my instance to /root/.ssh to solve permission denied error for git cloning 
 		
 
 		
