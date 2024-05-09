@@ -557,8 +557,46 @@ pipeline {
 - (05/08/2024) had to create a new index.html to replace the one I deleted. also had to redo the permissiions to allow jenkins access to write over var/www/html
 
 - (05/09/2024) trying to move private and public key for my instance to /root/.ssh to solve permission denied error for git cloning 
-		
 
+	- look at "Move SSH Keys to root's .ssh directory" for the steps I took after following 'Solution 2: Use sudo git clone' fix from article https://mhagemann.medium.com/how-to-fix-ssh-permission-denied-with-git-clone-f669b65f90ac
+
+	now I'm getting.....
+
+	+ sudo git clone git@github.com:patrickabrena/hack-page.git /var/www/html/hack-page
+	fatal: destination path '/var/www/html/hack-page' already exists and is not an empty 	directory.
+		
+	The blurb below are commmands to do the sudo git clone but now thee file path is http://18.191.88.173/hack-page/hack-page/ so I need to fix that. 
+
+	"ubuntu@ip-172-31-14-203:/$ cd var/www/html/
+	ubuntu@ip-172-31-14-203:/var/www/html$ ls
+	hack-page  index.html
+	ubuntu@ip-172-31-14-203:/var/www/html$ cd hack-page/
+	ubuntu@ip-172-31-14-203:/var/www/html/hack-page$ git status
+	fatal: not a git repository (or any of the parent directories): .git
+	ubuntu@ip-172-31-14-203:/var/www/html/hack-page$ git init
+	/var/www/html/hack-page/.git: Permission denied
+	ubuntu@ip-172-31-14-203:/var/www/html/hack-page$ sudo git init
+	hint: Using 'master' as the name for the initial branch. This default branch name
+	hint: is subject to change. To configure the initial branch name to use in all
+	hint: of your new repositories, which will suppress this warning, call:
+	hint:
+	hint:   git config --global init.defaultBranch <name>
+	hint:
+	hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+	hint: 'development'. The just-created branch can be renamed via this command:
+	hint:
+	hint:   git branch -m <name>
+	Initialized empty Git repository in /var/www/html/hack-page/.git/
+	ubuntu@ip-172-31-14-203:/var/www/html/hack-page$ sudo git clone git@github.com:patrickabrena/hack-page.git
+	Cloning into 'hack-page'...
+	Enter passphrase for key '/root/.ssh/id_rsa':
+	remote: Enumerating objects: 99, done.
+	remote: Counting objects: 100% (99/99), done.
+	remote: Compressing objects: 100% (70/70), done.
+	remote: Total 99 (delta 53), reused 68 (delta 27), pack-reused 0
+	Receiving objects: 100% (99/99), 12.83 KiB | 1010.00 KiB/s, done.
+	Resolving deltas: 100% (53/53), done.
+	ubuntu@ip-172-31-14-203:/var/www/html/hack-page$" 
 		
 
 
