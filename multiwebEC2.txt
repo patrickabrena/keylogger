@@ -599,4 +599,9 @@ pipeline {
 	ubuntu@ip-172-31-14-203:/var/www/html/hack-page$" 
 		
 
+- (05/10/2024) I cd into var/www/html on my ubuntu instance and then ran sudo rm -r hack-page
+	then I sudo git init while in /var/www/html
+	next I did sudo git clone git@github.com:patrickabrena/hack-page.git, "multiweb" is passpahrasee for key '/root/.ssh/id_rsa'
+	http://18.191.88.173/hack-page/ now shows my index.html of my hacker-page!
+	- now trying to just change groovy declarative script to be a simple git pull origin main to see if it successfully builds and pulls the updated code from remote github repo into mmy var/www/html/hack-page
 
