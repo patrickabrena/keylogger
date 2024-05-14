@@ -605,3 +605,9 @@ pipeline {
 	http://18.191.88.173/hack-page/ now shows my index.html of my hacker-page!
 	- now trying to just change groovy declarative script to be a simple git pull origin main to see if it successfully builds and pulls the updated code from remote github repo into mmy var/www/html/hack-page
 
+- (05/11/2024) Going to follow along with Java Home Cloud's up until I can successfully create a CI/CD pipeline. Current build #61 reflects git checkout lessons even though it's redundant
+
+- (05/13/2024) Taking a tangent to learn about Maven, aa build automation tool that helps keep consistent builds by 
+	- automatically updating dependencies needed
+	- compiling source code, runnig tests and packages theh code in JAR or WAR files
+	- using pom.xml file to define project structure, dependecies, plugins and goals
