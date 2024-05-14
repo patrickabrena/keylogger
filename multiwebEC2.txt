@@ -611,3 +611,6 @@ pipeline {
 	- automatically updating dependencies needed
 	- compiling source code, runnig tests and packages theh code in JAR or WAR files
 	- using pom.xml file to define project structure, dependecies, plugins and goals
+
+	- Check GPTs suggestion 'Maveen integration with Jenkins' 
+		-  latest query regarding the how to install maven on my ubuntu 20.04 EC2 instance 
