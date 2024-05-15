@@ -658,3 +658,5 @@ Resolving downloads.apache.org (downloads.apache.org)... 88.99.208.237, 135.181.
 Connecting to downloads.apache.org (downloads.apache.org)|88.99.208.237|:443... connected.
 HTTP request sent, awaiting response... 404 Not Found
 2024-05-14 17:53:49 ERROR 404: Not Found.
+
+- (05/15/2024) Yesterday I ran 'sudo apt install maven' and the issues was that the wget command that GPT sugggested was a different version of maven installed diffeerently?? So now I'm using newest conversation suggestion in GPT to just move the exisiting maven located in usr/share/maven into /opt directory.
