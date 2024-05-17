@@ -660,3 +660,10 @@ HTTP request sent, awaiting response... 404 Not Found
 2024-05-14 17:53:49 ERROR 404: Not Found.
 
 - (05/15/2024) Yesterday I ran 'sudo apt install maven' and the issues was that the wget command that GPT sugggested was a different version of maven installed diffeerently?? So now I'm using newest conversation suggestion in GPT to just move the exisiting maven located in usr/share/maven into /opt directory.
+
+- (05/16/2024) Following that latest suggestion throws error .....
+	ubuntu@ip-172-31-14-203:~$ mvn -version
+	Error: Could not find or load main class org.codehaus.plexus.classworlds.launcher.Launcher
+	Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.classworlds.launcher.Launcher
+
+	-- now trying to look at https://maven.apache.org/install.html and reading through directions for installing apache maven
