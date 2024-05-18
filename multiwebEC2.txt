@@ -731,3 +731,66 @@ HTTP request sent, awaiting response... 404 Not Found
 	ubuntu@ip-172-31-14-203:/$
 
 	- go back to java homme cloud's video after thge git checkout videos on using maven for build autmation with jenkins
+
+
+- (05/18/2024) Following Java Home Cloud 03 Jenkins Declarative Pipeline | Jenkins Maven Build.....
+	 
+	 this is my terminal copy using almost the same commands he did.....
+
+	 ubuntu@ip-172-31-14-203:~$ ls /opt/maven/bin/
+	m2.conf  mvn  mvn.cmd  mvnDebug  mvnDebug.cmd  mvnyjp
+	ubuntu@ip-172-31-14-203:~$ mvn
+	[INFO] Scanning for projects...
+	[INFO] ------------------------------------------------------------------------
+	[INFO] BUILD FAILURE
+	[INFO] ------------------------------------------------------------------------
+	[INFO] Total time:  0.202 s
+	[INFO] Finished at: 2024-05-18T20:58:33Z
+	[INFO] ------------------------------------------------------------------------
+	[ERROR] No goals have been specified for this build. You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]
+	[ERROR]
+	[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+	[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+	[ERROR]
+	[ERROR] For more information about the errors and possible solutions, please read the following articles:
+	[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoGoalSpecifiedException
+	ubuntu@ip-172-31-14-203:~$
+
+	-- now his returned response to "mvn" command is mvn: command not found where asa mine throws build error (possible bug)
+
+	-- my console error from this build is ....
+
+	[Pipeline] stage
+	[Pipeline] { (Maven Build)
+	[Pipeline] sh
+	+ mvn clean package
+	[INFO] Scanning for projects...
+	[INFO] ------------------------------------------------------------------------
+	[INFO] BUILD FAILURE
+	[INFO] ------------------------------------------------------------------------
+	[INFO] Total time:  0.292 s
+	[INFO] Finished at: 2024-05-18T21:15:02Z
+	[INFO] ------------------------------------------------------------------------
+	[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/var/lib/jenkins/workspace/hacker-job). Please verify you invoked Maven from the correct directory. -> [Help 1]
+	[ERROR] 
+	[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+	[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+	[ERROR] 
+	[ERROR] For more information about the errors and possible solutions, please read the following articles:
+	[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
+	[Pipeline] }
+	[Pipeline] // stage
+	[Pipeline] }
+	[Pipeline] // withEnv
+	[Pipeline] }
+	[Pipeline] // withEnv
+	[Pipeline] }
+	[Pipeline] // node
+	[Pipeline] End of Pipeline
+	ERROR: script returned exit code 1
+	Finished: FAILURE
+
+
+	 THINGS TO TRY TOMORROW
+
+	 watching video 4 "Simple CI/CD usiing Jenkins Declarative Pipeline" all the way through first then try the steps using my apache web server before trying tom cat. Possible solution at 5:37 time stamp up unttil neear the eend at 16;49
