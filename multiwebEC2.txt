@@ -690,3 +690,42 @@ HTTP request sent, awaiting response... 404 Not Found
 	2024-05-17 17:04:34 (6.79 MB/s) - ‘apache-maven-3.9.6-bin.tar.gz’ saved [9410508/9410508]
 
 	- look at new conversation "File Extraction Issue Troubleshooting" and follow the directions for running tar commmand again
+
+	- ran the "tar xzvf apache-maven-3.9.6-bin.tar.gz" command
+
+	- then I ran "chmod 644 apache-maven-3.9.6-bin.tar.gz "
+
+	- look back at the "Maven Integration with Jenkins" converesation for extracting tarball directly into /opt directoy
+
+
+	- the blurb below is a copy of the terminal state with commands I ran and the returned responses
+
+	ubuntu@ip-172-31-14-203:~$ rm -rf apache-maven-3.9.6
+	ubuntu@ip-172-31-14-203:~$ sudo tar xf apache-maven-3.9.6-bin.tar.gz -C /opt
+	ubuntu@ip-172-31-14-203:~$ sudo ln -s /opt/apache-maven-3.9.6/ /opt/maven
+	ubuntu@ip-172-31-14-203:~$ sudo nano /etc/profile.d/maven.sh
+	ubuntu@ip-172-31-14-203:~$ ls
+	apache-maven-3.9.6-bin.tar.gz  snap
+	ubuntu@ip-172-31-14-203:~$ cd ..
+	ubuntu@ip-172-31-14-203:/home$ ls
+	ubuntu
+	ubuntu@ip-172-31-14-203:/home$ cd ..
+	ubuntu@ip-172-31-14-203:/$ ls
+	bin   dev  home  lib32  libx32      media  opt   root  sbin  srv  tmp  var
+	boot  etc  lib   lib64  lost+found  mnt    proc  run   snap  sys  usr
+	ubuntu@ip-172-31-14-203:/$ cd opt/
+	ubuntu@ip-172-31-14-203:/opt$ ls
+	apache-maven-3.9.6  maven
+	ubuntu@ip-172-31-14-203:/opt$ cd ..
+	ubuntu@ip-172-31-14-203:/$ ls
+	bin   dev  home  lib32  libx32      media  opt   root  sbin  srv  tmp  var
+	boot  etc  lib   lib64  lost+found  mnt    proc  run   snap  sys  usr
+	ubuntu@ip-172-31-14-203:/$ sudo nano /etc/profile.d/maven.sh
+	ubuntu@ip-172-31-14-203:/$ source /etc/profile.d/maven.sh
+	ubuntu@ip-172-31-14-203:/$ mvn -version
+	Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+	Maven home: /opt/maven
+	Java version: 17.0.10, vendor: Private Build, runtime: /usr/lib/jvm/java-17-openjdk-amd64
+	Default locale: en, platform encoding: UTF-8
+	OS name: "linux", version: "6.5.0-1020-aws", arch: "amd64", family: "unix"
+	ubuntu@ip-172-31-14-203:/$
