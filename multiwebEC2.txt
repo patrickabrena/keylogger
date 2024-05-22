@@ -794,3 +794,13 @@ HTTP request sent, awaiting response... 404 Not Found
 	 THINGS TO TRY TOMORROW
 
 	 watching video 4 "Simple CI/CD usiing Jenkins Declarative Pipeline" all the way through first then try the steps using my apache web server before trying tom cat. Possible solution at 5:37 time stamp up unttil neear the eend at 16;49
+
+ - (05/22/2024) Highlevel overview notes on Simple CI/CD
+
+	- 1. Launch Instance
+			- security group should be configiured to allow all traffic (Security groups are firewalls in Amazon) 
+			- he has tomcat downloaded on his instance I have apache
+				-- apache2 is a general purpose webserver
+				-- tomcat specifically designed to serve Java applications
+
+		- left off at 1:27 in the video
