@@ -803,4 +803,14 @@ HTTP request sent, awaiting response... 404 Not Found
 				-- apache2 is a general purpose webserver
 				-- tomcat specifically designed to serve Java applications
 
-		- left off at 1:27 in the video
+		- left off at 1:27 in the video 
+
+-(05/31/2024) looking at this video to troubleshoot common problem with instance reliability checks failed. 
+
+	- Auto solution is to create a new alarm with....
+		- alarm notification off
+		- alarm action set to reboot
+		- type of data to sample : status check failed (instance)
+		- period : 1 min
+	- it worked this time with the auto solution with reboot on alarm now but here's the link for next time
+	- https://www.youtube.com/watch?v=G6Hz_KmbizM 
