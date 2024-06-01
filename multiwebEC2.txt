@@ -821,3 +821,6 @@ HTTP request sent, awaiting response... 404 Not Found
 	- revist this thread to read and figure out what's wrong 
 	
 		https://www.reddit.com/r/git/comments/mv6u75/what_does_fatal_ambiguous_argument_argument_name/
+
+- (06.01.2024) watch this video on terminnal vs bash vs command line prompt 
+		- https://www.youtube.com/watch?v=hMSByvFHOro 
