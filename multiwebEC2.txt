@@ -814,3 +814,10 @@ HTTP request sent, awaiting response... 404 Not Found
 		- period : 1 min
 	- it worked this time with the auto solution with reboot on alarm now but here's the link for next time
 	- https://www.youtube.com/watch?v=G6Hz_KmbizM 
+
+	WORKING IN THE .JENKINSFILE NOW!!!
+
+	- look at build #64 to see fatal ambigious argument
+	- revist this thread to read and figure out what's wrong 
+	
+		https://www.reddit.com/r/git/comments/mv6u75/what_does_fatal_ambiguous_argument_argument_name/
