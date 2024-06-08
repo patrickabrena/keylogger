@@ -824,3 +824,17 @@ HTTP request sent, awaiting response... 404 Not Found
 
 - (06.01.2024) watch this video on terminnal vs bash vs command line prompt 
 		- https://www.youtube.com/watch?v=hMSByvFHOro 
+
+- (06.02.2024) scouting out future projects after this one
+	- Real Time DevOps Project | Use Terraform Jenkins AWS to deploy REST API
+	- https://www.youtube.com/watch?v=otQqd7GRVK0 
+
+- (06.06.2024) Possible reasons for fatal ambigious error...
+	- the var/www/html repository on the instance that I want to pull the code into is not actually a git repo so maybe that's why I'm getting the errors in my my jenkins job console output
+
+-(06.07.2024) When I ran sudo su and then var/www/html and then git init i reinitialized the repo so that means it was already git init from before. 
+
+	- I've modified the .jenkinsfile so that there is no git reset command and I've also wrapped it in an sshagent block. 
+	- the error code I'm getting from the jenkins console output is Error loading key "/var/lib/jenkins/workspace/hacker-job@tmp/private_key_13757191683239591515.key": error in libcrypto
+	- when I do sudo su on my instance and try that file path it doesn't exist. I do have /var/lib/jenkins/workspace/hacker-job@tmp/secretFiles but there is no private_key.key
+		- to resolve this i should use Jenkins Credential Bindings (check GPT "SSH Agent Environment Variables")
