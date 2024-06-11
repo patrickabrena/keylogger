@@ -838,3 +838,11 @@ HTTP request sent, awaiting response... 404 Not Found
 	- the error code I'm getting from the jenkins console output is Error loading key "/var/lib/jenkins/workspace/hacker-job@tmp/private_key_13757191683239591515.key": error in libcrypto
 	- when I do sudo su on my instance and try that file path it doesn't exist. I do have /var/lib/jenkins/workspace/hacker-job@tmp/secretFiles but there is no private_key.key
 		- to resolve this i should use Jenkins Credential Bindings (check GPT "SSH Agent Environment Variables")
+
+- (06.10.2024) 
+	- trying something else instead of Jenkins credential Bindings
+	- going to try to make Jenkins use the SSH key  located at /root/.ssh/id_rsa
+	- Look back at GPT's SSH Agent Environment Variable  suggestion on handing jenkins job using id_rsa
+
+	- suggestion and code from latest query in SSH Agent Environment Variable failed
+	- try looking at forums for error loading key libcrypto
