@@ -846,3 +846,15 @@ HTTP request sent, awaiting response... 404 Not Found
 
 	- suggestion and code from latest query in SSH Agent Environment Variable failed
 	- try looking at forums for error loading key libcrypto
+
+- (06.29.2024) 
+	- Look at bookmark "How to connect to remote ssh agents"
+	- thinking of moving the id_rsa.pub and id_rsa located in root directory, into (FN + Left Shift + Esc) ~/.ssh then following the steps in the blog post so taht I can remove the stage('Use SSH Key'). hoping to at least fix the error loading libcrypto 
+
+
+
+
+
+
+
+
